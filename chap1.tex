@@ -90,6 +90,60 @@ One more way to categorize Machine Learning systems is by how they \textit{gener
 generalizes to new cases by using a similarity measure to compare them to the
 learned examples (or a subset of them).\\
 Another way to generalize from a set of examples is to build a model of these exam‐
-ples and then use that model to make predictions. This is called \textbf{\textit{model-based learning}}
+ples and then use that model to make predictions. This is called \textbf{\textit{model-based learning}}\\
+
+\subsection*{Overfitting the training Data}
+\textit{Overfitting}:  it means that the model performs well on the training data, but it does not generalize
+well. \includegraphics[width=7cm]{Overfitting}.\\
+Overfitting happens when the model is too complex relative to the
+amount and noisiness of the training data. Here are possible solu‐
+tions:\\
+• Simplify the model by selecting one with fewer parameters
+(e.g., a linear model rather than a high-degree polynomial
+model), by reducing the number of attributes in the training
+data, or by constraining the model.\\
+• Gather more training data.\\
+• Reduce the noise in the training data (e.g., fix data errors and
+remove outliers).\\
+
+\subsection*{Underfitting the training Data}
+\textit{underfitting} is the opposite of overfitting: it occurs when your
+model is too simple to learn the underlying structure of the data.
+Here are the main options for fixing this problem:\\
+• Select a more powerful model, with more parameters.\\
+• Feed better features to the learning algorithm (feature engineering).\\
+• Reduce the constraints on the model (e.g., reduce the regularization hyperpara‐
+meter).\\
+
+\subsection*{Testing and Validating}
+Split your data into two sets: the training set and the test set. As these names imply, you train your model using the training set, and you test it using
+the test set. The error rate on new cases is called the \textit{generalization error}.\\
+If the training error is low (i.e., your model makes few mistakes on the training set)
+but the generalization error is high, it means that your model is overfitting the train‐
+ing data.\\
+\textit{holdout validation}: you simply hold out
+part of the training set to evaluate several candidate models and select the best one.
+The new held-out set is called the validation set (or sometimes the development set, or
+dev set). More specifically, you train multiple models with various hyperparameters
+on the reduced training set (i.e., the full training set minus the validation set), and
+you select the model that performs best on the validation set. After this holdout vali‐
+dation process, you train the best model on the full training set (including the valida‐
+tion set), and this gives you the final model. Lastly, you evaluate this final model on
+the test set to get an estimate of the generalization error.\\
+\textit{cross-validation}: using many small validation sets. Each model is evaluated
+once per validation set after it is trained on the rest of the data. By averaging out all
+the evaluations of a model, you get a much more accurate measure of its perfor‐
+mance. There is a drawback, however: the training time is multiplied by the number
+of validation sets.
+
+
+
+
+
+
+
+
+
+
 
 
